@@ -2,6 +2,6 @@ package goit.gojava2.javacore.module3.files;
 
 import java.util.List;
 
-class Folder {
+public class Folder {
     private List<File> files;
 }

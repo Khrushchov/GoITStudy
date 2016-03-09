@@ -1,7 +1,7 @@
 package goit.gojava2.javacore.module4.figures;
 import static java.lang.Math.*;
 
-class Circle extends Figure {
+public class Circle extends Figure {
     private int radius;
 
     public Circle(int radius) {

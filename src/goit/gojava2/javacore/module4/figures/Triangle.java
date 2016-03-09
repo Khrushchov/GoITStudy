@@ -1,5 +1,5 @@
 package goit.gojava2.javacore.module4.figures;
-//GOTO
+
 public class Triangle extends Figure {
     private int base;
     private int height;
