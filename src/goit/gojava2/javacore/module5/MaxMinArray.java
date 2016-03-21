@@ -2,13 +2,23 @@ package goit.gojava2.javacore.module5;
 
 public class MaxMinArray {
     private int maxArray;
+
+    public int getMaxArray() {
+        return maxArray;
+    }
+
+    public int getMinArray() {
+        return minArray;
+    }
+
     private int minArray;
 
     public static void main(String[] args) {
-        int[] array = {78, 45, -96, 125, -13, 13};
+        int[] array = {78, 45, -976, 125, -13, 13};
         MaxMinArray maxMinArray = new MaxMinArray();
         maxMinArray.maxMinArray(array);
-        System.out.println("maxArray = " + maxMinArray.maxArray + " minArray = " + maxMinArray.minArray);
+        System.out.println("maxArray = " + maxMinArray.getMaxArray() + " minArray = " +
+                maxMinArray.getMinArray());
     }
 
     private void maxMinArray(int[] array){
