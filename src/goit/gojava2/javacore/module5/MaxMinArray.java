@@ -15,10 +15,10 @@ public class MaxMinArray {
 
     public static void main(String[] args) {
         int[] array = {78, 45, -976, 125, -13, 13};
-        MaxMinArray maxMinArray = new MaxMinArray();
-        maxMinArray.maxMinArray(array);
-        System.out.println("maxArray = " + maxMinArray.getMaxArray() + " minArray = " +
-                maxMinArray.getMinArray());
+        MaxMinArray item1 = new MaxMinArray();
+        item1.maxMinArray(array);
+        System.out.println("maxArray = " + item1.getMaxArray() + " minArray = " +
+                item1.getMinArray());
     }
 
     private void maxMinArray(int[] array){
