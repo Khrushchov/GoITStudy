@@ -1,9 +1,7 @@
 package goit.gojava2.javacore.module3.files;
 
 public abstract class File {
-    String name;
+   private String name;
 
-    public String getName() {
-        return name;
-    }
+   abstract public String getName();
 }
