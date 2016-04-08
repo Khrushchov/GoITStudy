@@ -1,9 +1,6 @@
 package goit.gojava2.javacore.module8;
 
-import goit.gojava2.javacore.module3.musicalInstruments.Guitar;
-import goit.gojava2.javacore.module3.musicalInstruments.MusicalInstrument;
-import goit.gojava2.javacore.module3.musicalInstruments.Piano;
-import goit.gojava2.javacore.module3.musicalInstruments.Trumpet;
+import goit.gojava2.javacore.module3.musicalInstruments.*;
 
 import java.util.Comparator;
 import java.util.Set;
