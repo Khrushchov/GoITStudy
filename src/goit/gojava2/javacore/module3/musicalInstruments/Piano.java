@@ -16,4 +16,9 @@ public class Piano extends MusicalInstrument {
     public boolean isFirstHand() {
         return firstHand;
     }
+
+    @Override
+    public String toString() {
+        return "Piano";
+    }
 }

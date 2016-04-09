@@ -16,4 +16,9 @@ public class Trumpet extends MusicalInstrument {
     public boolean isFirstHand() {
         return firstHand;
     }
+
+    @Override
+    public String toString() {
+        return "Trumpet";
+    }
 }
