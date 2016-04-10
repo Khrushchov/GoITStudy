@@ -25,12 +25,19 @@ public class Factorial {
             if (enteredInteger < 1) {
                 throw new NegativeIntegerException(enteredInteger);
             }
+            if (enteredInteger > 20){
+                throw new LimitException(enteredInteger);
+            }
         } catch(IllegalNumberException ine){
             System.out.println("[Error]: Entered data isn't integer.");
         }
         catch (NegativeIntegerException nne) {
             System.out.println("[Error]: Entered number is " + nne.getValue() + ". Number should " +
                     "be" + " > 0.");
+        }
+        catch (LimitException ex){
+            System.out.println("[Error]: Entered number is " + ex.getValue() + ". Number should " +
+                    "be" + " <= 20 .");
         }
         return enteredInteger;
     }
