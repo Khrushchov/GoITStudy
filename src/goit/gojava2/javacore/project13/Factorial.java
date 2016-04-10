@@ -1,0 +1,47 @@
+package goit.gojava2.javacore.project13;
+
+import java.util.Scanner;
+
+public class Factorial {
+    public static void main(String[] args) {
+        Factorial item = new Factorial();
+        item.getFactorial();
+    }
+
+    public void getFactorial() {
+        int enteredInteger = connectUser();
+        long result = factorial(enteredInteger);
+        System.out.println("Factorial of " + enteredInteger + " = " + result);
+    }
+
+    public int connectUser() {
+        int enteredInteger = 0;
+        try (Scanner in = new Scanner(System.in)){
+            System.out.println("Enter positive integer <= 20");
+            if (!in.hasNextInt()){
+               throw new IllegalNumberException();
+            }
+            enteredInteger = in.nextInt();
+            if (enteredInteger < 1) {
+                throw new NegativeIntegerException(enteredInteger);
+            }
+        } catch(IllegalNumberException ine){
+            System.out.println("[Error]: Entered data isn't integer.");
+        }
+        catch (NegativeIntegerException nne) {
+            System.out.println("[Error]: Entered number is " + nne.getValue() + ". Number should " +
+                    "be" + " > 0.");
+        }
+        return enteredInteger;
+    }
+
+    private long factorial(int positiveInteger) {
+        long result = 1;
+        for (int i = 1; i <= positiveInteger; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+
+}

@@ -1,6 +1,6 @@
 package goit.gojava2.javacore.module4.converter;
 
-public class IllegalTemperatureException extends Exception{
+class IllegalTemperatureException extends Exception{
       private int tempValue;
       private String scale;
 
