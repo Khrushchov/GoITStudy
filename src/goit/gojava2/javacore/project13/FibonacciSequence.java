@@ -33,12 +33,16 @@ public class FibonacciSequence {
                 throw new IllegalNumberException();
             }
             enteredInteger = in.nextInt();
-            if (enteredInteger < 1) {
-                throw new NegativeIntegerException(enteredInteger);
-            }
+            checkInteger(enteredInteger);
         }
 
         return enteredInteger;
+    }
+
+    private void checkInteger(int enteredInteger) throws NegativeIntegerException {
+        if (enteredInteger < 1) {
+            throw new NegativeIntegerException(enteredInteger);
+        }
     }
 
     private List<Integer> getFibSeq(int limit) {
