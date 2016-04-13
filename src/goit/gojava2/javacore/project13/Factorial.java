@@ -11,7 +11,9 @@ public class Factorial {
     public void start() {
         int enteredInteger = connectUser();
         long result = getFactorial(enteredInteger);
-        System.out.println("Factorial of " + enteredInteger + " = " + result);
+        if (enteredInteger > 0) {
+            System.out.println("Factorial of " + enteredInteger + " = " + result);
+        }
     }
 
     public int connectUser() {
