@@ -38,7 +38,7 @@ public class Factorial {
         return enteredInteger;
     }
 
-    private void checkInteger(int enteredInteger) throws NegativeIntegerException, LimitException {
+    public void checkInteger(int enteredInteger) throws NegativeIntegerException, LimitException {
         if (enteredInteger < 1) {
             throw new NegativeIntegerException(enteredInteger);
         }
