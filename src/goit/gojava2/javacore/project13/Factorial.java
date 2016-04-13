@@ -9,37 +9,36 @@ public class Factorial {
     }
 
     public void start() {
-        int enteredInteger = connectUser();
-        long result = getFactorial(enteredInteger);
-        if (enteredInteger > 0) {
+
+        try {
+            int enteredInteger = connectUser();
+            long result = getFactorial(enteredInteger);
             System.out.println("Factorial of " + enteredInteger + " = " + result);
+        } catch (IllegalNumberException ine) {
+            System.out.println("[Error]: Entered data isn't integer.");
+        } catch (NegativeIntegerException nie) {
+            System.out.println("[Error]: Entered number is " + nie.getValue() + ". Number should " +
+                    "be" + " > 0.");
+        } catch (LimitException ex) {
+            System.out.println("[Error]: Entered number is " + ex.getValue() + ". Number should " +
+                    "be" + " <= 20 .");
         }
     }
 
-    public int connectUser() {
+    public int connectUser() throws IllegalNumberException, NegativeIntegerException, LimitException {
         int enteredInteger = 0;
-        try (Scanner in = new Scanner(System.in)){
+        try (Scanner in = new Scanner(System.in)) {
             System.out.println("Enter positive integer <= 20");
-            if (!in.hasNextInt()){
-               throw new IllegalNumberException();
+            if (!in.hasNextInt()) {
+                throw new IllegalNumberException();
             }
             enteredInteger = in.nextInt();
             if (enteredInteger < 1) {
                 throw new NegativeIntegerException(enteredInteger);
             }
-            if (enteredInteger > 20){
+            if (enteredInteger > 20) {
                 throw new LimitException(enteredInteger);
             }
-        } catch(IllegalNumberException ine){
-            System.out.println("[Error]: Entered data isn't integer.");
-        }
-        catch (NegativeIntegerException nie) {
-            System.out.println("[Error]: Entered number is " + nie.getValue() + ". Number should " +
-                    "be" + " > 0.");
-        }
-        catch (LimitException ex){
-            System.out.println("[Error]: Entered number is " + ex.getValue() + ". Number should " +
-                    "be" + " <= 20 .");
         }
         return enteredInteger;
     }
