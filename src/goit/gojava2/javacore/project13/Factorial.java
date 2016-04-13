@@ -33,14 +33,18 @@ public class Factorial {
                 throw new IllegalNumberException();
             }
             enteredInteger = in.nextInt();
-            if (enteredInteger < 1) {
-                throw new NegativeIntegerException(enteredInteger);
-            }
-            if (enteredInteger > 20) {
-                throw new LimitException(enteredInteger);
-            }
+            checkInteger(enteredInteger);
         }
         return enteredInteger;
+    }
+
+    private void checkInteger(int enteredInteger) throws NegativeIntegerException, LimitException {
+        if (enteredInteger < 1) {
+            throw new NegativeIntegerException(enteredInteger);
+        }
+        if (enteredInteger > 20) {
+            throw new LimitException(enteredInteger);
+        }
     }
 
     private long getFactorial(int positiveInteger) {
