@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class Factorial {
     public static void main(String[] args) {
         Factorial item = new Factorial();
-        item.getFactorial();
+        item.start();
     }
 
-    public void getFactorial() {
+    public void start() {
         int enteredInteger = connectUser();
-        long result = factorial(enteredInteger);
+        long result = getFactorial(enteredInteger);
         System.out.println("Factorial of " + enteredInteger + " = " + result);
     }
 
@@ -31,8 +31,8 @@ public class Factorial {
         } catch(IllegalNumberException ine){
             System.out.println("[Error]: Entered data isn't integer.");
         }
-        catch (NegativeIntegerException nne) {
-            System.out.println("[Error]: Entered number is " + nne.getValue() + ". Number should " +
+        catch (NegativeIntegerException nie) {
+            System.out.println("[Error]: Entered number is " + nie.getValue() + ". Number should " +
                     "be" + " > 0.");
         }
         catch (LimitException ex){
@@ -42,7 +42,7 @@ public class Factorial {
         return enteredInteger;
     }
 
-    private long factorial(int positiveInteger) {
+    private long getFactorial(int positiveInteger) {
         long result = 1;
         for (int i = 1; i <= positiveInteger; i++) {
             result *= i;
