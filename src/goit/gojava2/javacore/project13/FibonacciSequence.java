@@ -1,34 +1,34 @@
 package goit.gojava2.javacore.project13;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
-public class Factorial {
+public class FibonacciSequence {
     public static void main(String[] args) {
-        Factorial item = new Factorial();
-        item.start();
+        FibonacciSequence fibSeq = new FibonacciSequence();
+        fibSeq.start();
     }
 
     public void start() {
 
         try {
             int enteredInteger = connectUser();
-            long result = getFactorial(enteredInteger);
-            System.out.println("Factorial of " + enteredInteger + " = " + result);
+            List<Integer> result = getFibSeq(enteredInteger);
+            System.out.println("Fibonacci sequence < " + enteredInteger + " = " + result);
         } catch (IllegalNumberException ine) {
             System.out.println("[Error]: Entered data isn't integer.");
         } catch (NegativeIntegerException nie) {
             System.out.println("[Error]: Entered number is " + nie.getValue() + ". Number should " +
                     "be" + " > 0.");
-        } catch (LimitException ex) {
-            System.out.println("[Error]: Entered number is " + ex.getValue() + ". Number should " +
-                    "be" + " <= 20 .");
         }
     }
 
-    public int connectUser() throws IllegalNumberException, NegativeIntegerException, LimitException {
+    private int connectUser() throws IllegalNumberException, NegativeIntegerException {
         int enteredInteger;
+
         try (Scanner in = new Scanner(System.in)) {
-            System.out.println("Enter positive integer <= 20");
+            System.out.println("Enter positive integer");
             if (!in.hasNextInt()) {
                 throw new IllegalNumberException();
             }
@@ -36,20 +36,19 @@ public class Factorial {
             if (enteredInteger < 1) {
                 throw new NegativeIntegerException(enteredInteger);
             }
-            if (enteredInteger > 20) {
-                throw new LimitException(enteredInteger);
-            }
         }
+
         return enteredInteger;
     }
 
-    private long getFactorial(int positiveInteger) {
-        long result = 1;
-        for (int i = 1; i <= positiveInteger; i++) {
-            result *= i;
+    private List<Integer> getFibSeq(int limit) {
+        List<Integer> sequence = new ArrayList<>();
+        sequence.add(1);
+        sequence.add(1);
+        for (int i = 2; sequence.get(i - 1) + sequence.get(i - 2) < limit; i++) {
+            sequence.add(i, sequence.get(i - 1) + sequence.get(i - 2));
         }
-        return result;
+        return sequence;
+
     }
-
-
 }
