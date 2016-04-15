@@ -12,9 +12,9 @@ public class Factorial {
 
         try {
             int enteredInteger = connectUser();
-            long result = getFactorial(enteredInteger);
+            long result = getFactorial(connectUser());
             System.out.println("Factorial of " + enteredInteger + " = " + result);
-        } catch (IllegalNumberException ine) {
+        } catch (NumberFormatException nfe) {
             System.out.println("[Error]: Entered data isn't integer.");
         } catch (NegativeIntegerException nie) {
             System.out.println("[Error]: Entered number is " + nie.getValue() + ". Number should " +
@@ -25,16 +25,15 @@ public class Factorial {
         }
     }
 
-    public int connectUser() throws IllegalNumberException, NegativeIntegerException, LimitException {
+    public int connectUser() throws NumberFormatException, NegativeIntegerException,
+            LimitException {
         int enteredInteger;
         try (Scanner in = new Scanner(System.in)) {
             System.out.println("Enter positive integer <= 20");
-            if (!in.hasNextInt()) {
-                throw new IllegalNumberException();
-            }
-            enteredInteger = in.nextInt();
+            enteredInteger = Integer.parseInt(in.next());
             checkInteger(enteredInteger);
         }
+
         return enteredInteger;
     }
 

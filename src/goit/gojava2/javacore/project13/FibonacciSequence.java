@@ -16,7 +16,7 @@ public class FibonacciSequence {
             int enteredInteger = connectUser();
             List<Integer> result = getFibSeq(enteredInteger);
             System.out.println("Fibonacci sequence < " + enteredInteger + " = " + result);
-        } catch (IllegalNumberException ine) {
+        } catch (NumberFormatException nfe) {
             System.out.println("[Error]: Entered data isn't integer.");
         } catch (NegativeIntegerException nie) {
             System.out.println("[Error]: Entered number is " + nie.getValue() + ". Number should " +
@@ -24,15 +24,13 @@ public class FibonacciSequence {
         }
     }
 
-    private int connectUser() throws IllegalNumberException, NegativeIntegerException {
+    private int connectUser() throws NumberFormatException, NegativeIntegerException {
         int enteredInteger;
 
         try (Scanner in = new Scanner(System.in)) {
             System.out.println("Enter positive integer");
-            if (!in.hasNextInt()) {
-                throw new IllegalNumberException();
-            }
-            enteredInteger = in.nextInt();
+
+            enteredInteger = Integer.parseInt(in.next());
             checkInteger(enteredInteger);
         }
 
