@@ -3,6 +3,7 @@ package goit.gojava2.javacore.project14;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
 public class Factorial2 {
 
     public static void main(String[] args) {

@@ -26,7 +26,7 @@ public class Fibonacci {
         }
     }
 
-    private int connectUser() throws InputMismatchException {
+    public int connectUser() throws InputMismatchException {
         int enteredInteger;
 
         try (Scanner in = new Scanner(System.in)) {
@@ -41,14 +41,14 @@ public class Fibonacci {
         return enteredInteger;
     }
 
-    private void checkInteger(int enteredInteger) throws NumberFormatException {
+    public void checkInteger(int enteredInteger) throws NumberFormatException {
         if (enteredInteger < 1) {
             throw new NumberFormatException();
         }
     }
 
-    private List<Integer> getFibSeq(int limit) {
-        List<Integer> sequence = new ArrayList<>();
+    public ArrayList<Integer> getFibSeq(int limit) {
+        ArrayList<Integer> sequence = new ArrayList<>();
         sequence.add(1);
         sequence.add(1);
         for (int i = 2; sequence.get(i - 1) + sequence.get(i - 2) < limit; i++) {
