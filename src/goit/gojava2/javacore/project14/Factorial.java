@@ -8,18 +8,24 @@ public class Factorial {
     public static void main(String[] args) {
         Factorial item = new Factorial();
         item.start();
-//        System.out.println((item.getFactorial(enteredInteger)));
     }
 
     public void start(){
-        int enteredInteger;
+        int enteredInteger = 0;
         long result;
         try {
             enteredInteger = connectUser();
+            checkInteger(enteredInteger);
             result = getFactorial(enteredInteger);
             System.out.println("Factorial of " + enteredInteger + " = " + result);
         } catch (InputMismatchException ime){
-            System.out.println("[Error]: Entered data isn't integer");
+            System.out.println("[Error]: Entered data isn't integer.");
+        } catch (NumberFormatException nfe){
+            System.out.println("[Error]: Entered number is " + enteredInteger + ". Number should " +
+                    "be > 0.");
+        } catch (UpperLimitException ule){
+            System.out.println("[Error]: Entered number is " + ule.getValue() + ". Number should " +
+                    "be <= 20.");
         }
     }
 
@@ -27,13 +33,23 @@ public class Factorial {
         int enteredInteger;
         try(Scanner in = new Scanner(System.in)){
             System.out.println("\t FACTORIAL \t");
-            System.out.println("Enter positive integer < 20");
+            System.out.println("Enter positive integer <= 20");
         if(!in.hasNextInt()){
             throw new InputMismatchException();
         }
         enteredInteger = in.nextInt();
         }
         return enteredInteger;
+    }
+
+    public void checkInteger(int enteredInteger)throws NumberFormatException, UpperLimitException {
+        if (enteredInteger < 1){
+            throw new NumberFormatException();
+        }
+
+        if (enteredInteger > 20){
+            throw new UpperLimitException(enteredInteger);
+        }
     }
 
     public long getFactorial(int positiveInteger){
