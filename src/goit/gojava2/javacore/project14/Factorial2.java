@@ -3,10 +3,10 @@ package goit.gojava2.javacore.project14;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Factorial {
+public class Factorial2 {
 
     public static void main(String[] args) {
-        Factorial item = new Factorial();
+        Factorial2 item = new Factorial2();
         item.start();
     }
 
@@ -23,8 +23,9 @@ public class Factorial {
         } catch (NumberFormatException nfe){
             System.out.println("[Error]: Entered number is " + enteredInteger + ". Number should " +
                     "be > 0.");
-        } catch (UpperLimitException ule){
-            System.out.println("[Error]: Entered number is " + ule.getValue() + ". Number should " +
+        } catch (Exception ex){
+            System.out.println("[Error]: Entered number is " + enteredInteger + ". Number should" +
+                    " " +
                     "be <= 20.");
         }
     }
@@ -42,13 +43,13 @@ public class Factorial {
         return enteredInteger;
     }
 
-    public void checkInteger(int enteredInteger)throws NumberFormatException, UpperLimitException {
+    public void checkInteger(int enteredInteger)throws  Exception {
         if (enteredInteger < 1){
             throw new NumberFormatException();
         }
 
         if (enteredInteger > 20){
-            throw new UpperLimitException(enteredInteger);
+            throw new Exception();
         }
     }
 
